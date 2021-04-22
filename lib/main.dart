@@ -1,3 +1,4 @@
+import 'package:dashboard/pages/home/desktop.dart';
 import 'package:dashboard/pages/home/home_page.dart';
 import 'package:dashboard/provider/app_provider.dart';
 import 'package:dashboard/rounting/route_names.dart';
@@ -5,6 +6,7 @@ import 'package:dashboard/rounting/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'helpers/reusable.dart';
 import 'locator.dart';
 
 void main() {
@@ -33,8 +35,10 @@ class MyApp extends StatelessWidget {
 class AppPagesController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    initScreenDims(context);
     return Scaffold(
-      body: HomePage(),
+      body: HomePageDesktop(),
+      // body: HomePage(),
     );
   }
 }
