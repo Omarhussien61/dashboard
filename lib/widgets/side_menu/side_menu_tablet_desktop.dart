@@ -14,9 +14,9 @@ class SideMenuTabletDesktop extends StatelessWidget {
     final AppProvider appProvider = Provider.of<AppProvider>(context);
     return Container(
       decoration: BoxDecoration(
-          color: Colors.indigo,
+          color: Colors.green,
           gradient: LinearGradient(
-            colors: [Colors.indigo, Colors.indigo.shade600],
+            colors: [Colors.green, Colors.green.shade600],
           ),
           boxShadow: [
             BoxShadow(
