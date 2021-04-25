@@ -14,9 +14,9 @@ class SideMenuTabletDesktop extends StatelessWidget {
     final AppProvider appProvider = Provider.of<AppProvider>(context);
     return Container(
       decoration: BoxDecoration(
-          color: Colors.indigo,
+          color: Colors.green,
           gradient: LinearGradient(
-            colors: [Colors.indigo, Colors.indigo.shade600],
+            colors: [Colors.green, Colors.green.shade600],
           ),
           boxShadow: [
             BoxShadow(
@@ -37,8 +37,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               },
             ),
             SideMenuItemDesktop(
-              icon: Icons.people,
-              text: 'Users',
+              icon: Icons.person,
+              text: 'Profile',
               active: appProvider.currentPage == DisplayedPage.USERS,
               onTap: () {
                 appProvider.changeCurrentPage(DisplayedPage.USERS);
@@ -47,8 +47,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               },
             ),
             SideMenuItemDesktop(
-              icon: Icons.shopping_cart,
-              text: 'Orders',
+              icon: Icons.table_rows_outlined,
+              text: 'Tables',
               active: appProvider.currentPage == DisplayedPage.ORDERS,
               onTap: () {
                 appProvider.changeCurrentPage(DisplayedPage.ORDERS);
@@ -56,8 +56,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               },
             ),
             SideMenuItemDesktop(
-              icon: Icons.shopping_basket_outlined,
-              text: 'Products',
+              icon: Icons.map,
+              text: 'Maps',
               active: appProvider.currentPage == DisplayedPage.PRODUCTS,
               onTap: () {
                 appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);

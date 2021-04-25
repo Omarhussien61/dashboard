@@ -1,4 +1,6 @@
 import 'package:dashboard/main.dart';
+import 'package:dashboard/pages/login/login.dart';
+import 'package:dashboard/pages/registration/registration.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/widgets/layout/layout.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case HomeRoute:
       return _getPageRoute(HomePage());
-
+    case LoginRoute:
+      return _getPageRoute(loginPage());
+    case RegistrationRoute:
+      return _getPageRoute(RegistrationPage());
     case LayoutRoute:
       return _getPageRoute(LayoutTemplate());
     case PageControllerRoute:

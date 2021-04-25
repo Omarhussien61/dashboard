@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.0.0
   percent_indicator: ^3.0.1
+  cloud_firestore: ^1.0.6
+  firebase_core: ^1.0.4
+  firebase_auth: ^1.1.1
   shared_preferences: ^2.0.5
   provider: ^5.0.0
   responsive_builder: ^0.4.1
