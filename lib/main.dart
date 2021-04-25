@@ -1,3 +1,4 @@
+import 'package:dashboard/pages/home/home_page.dart';
 import 'package:dashboard/helpers/costants.dart';
 import 'package:dashboard/pages/login/login.dart';
 import 'package:dashboard/provider/app_provider.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'custom_text.dart';
 
@@ -12,7 +13,7 @@ class PageHeader extends StatelessWidget {
       children: [
         SizedBox(width: 30,),
         Padding(
-          padding: const EdgeInsets.all(14),
+          padding: EdgeInsets.only(top: 24.h,bottom: 8.h),
           child: CustomText(text: text, size: 40, weight: FontWeight.bold, color: Colors.grey,),
         ),
       ],
