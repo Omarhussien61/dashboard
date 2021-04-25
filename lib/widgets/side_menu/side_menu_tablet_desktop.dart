@@ -69,17 +69,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               text: 'Categories',
               active: appProvider.currentPage == DisplayedPage.CATEGORIES,
               onTap: () {
-                appProvider.changeCurrentPage(DisplayedPage.CATEGORIES);
-                locator<NavigationService>().navigateTo(CategoriesRoute);
-              },
-            ),
-            SideMenuItemDesktop(
-              icon: Icons.category,
-              text: 'Brands',
-              active: appProvider.currentPage == DisplayedPage.BRANDS,
-              onTap: () {
-                appProvider.changeCurrentPage(DisplayedPage.BRANDS);
-                locator<NavigationService>().navigateTo(BrandsRoute);
+                appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);
+                locator<NavigationService>().navigateTo(ProductsRoute);
               },
             ),
           ],

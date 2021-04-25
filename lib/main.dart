@@ -2,6 +2,7 @@ import 'package:dashboard/helpers/costants.dart';
 import 'package:dashboard/pages/login/login.dart';
 import 'package:dashboard/provider/app_provider.dart';
 import 'package:dashboard/provider/auth.dart';
+import 'package:dashboard/provider/tables.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/rounting/router.dart';
 import 'package:dashboard/widgets/layout/layout.dart';
@@ -16,6 +17,7 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider.value(value: AppProvider.init()),
     ChangeNotifierProvider.value(value: AuthProvider.initialize()),
+    ChangeNotifierProvider.value(value: TablesProvider.init()),
   ], child: MyApp()));
 }
 
