@@ -77,7 +77,7 @@ class OrdersModel {
     orderUserPhone = snapshot.data()[OrderUserPhone];
     orderStatus = snapshot.data()[OrderStatus] ?? " ";
     orderServiceProvider = snapshot.data()[OrderServiceProvider];
-    orderType = snapshot.data()[OrderType].floor();
+    orderType = snapshot.data()[OrderType];
     shippingAddress = snapshot.data()[ShippingAddress];
     orderRegion = snapshot.data()[OrderRegion];
     order = snapshot.data()[Order];

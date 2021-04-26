@@ -1,5 +1,4 @@
 import 'package:dashboard/helpers/reusable.dart';
-import 'package:dashboard/pages/home/desktop.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/rounting/router.dart';
 import 'package:dashboard/services/navigation_service.dart';
@@ -41,13 +40,13 @@ class LayoutTemplate extends StatelessWidget {
               children: [
                 NavigationBar(),
                 Expanded(
-                  child: HomePageDesktop(),
+                  //child: HomePageDesktop(),
                   flex: 1,
-                  // child: Navigator(
-                  //   key: locator<NavigationService>().navigatorKey,
-                  //   onGenerateRoute: generateRoute,
-                  //   initialRoute: HomeRoute,
-                  // ),
+                  child: Navigator(
+                    key: locator<NavigationService>().navigatorKey,
+                    onGenerateRoute: generateRoute,
+                    initialRoute: HomeRoute,
+                  ),
                 )
               ],
             ),

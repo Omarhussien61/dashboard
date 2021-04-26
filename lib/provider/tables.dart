@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dashboard/models/orders.dart';
 import 'package:dashboard/models/user.dart';
-import 'package:dashboard/services/products.dart';
+import 'package:dashboard/services/orders.dart';
 import 'package:dashboard/services/user.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_table/DatatableHeader.dart';
@@ -72,27 +72,27 @@ class TablesProvider with ChangeNotifier {
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Name",
-        value: "name",
+        text: "orderID",
+        value: "orderID",
         show: true,
         flex: 2,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Brand",
-        value: "brand",
+        text: "Description",
+        value: "Description",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Category",
-        value: "category",
+        text: "Provider Name",
+        value: "ServiceProviderName",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Quantity",
-        value: "quantity",
+        text: "Status",
+        value: "Status",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
@@ -103,62 +103,31 @@ class TablesProvider with ChangeNotifier {
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Colors",
-        value: "colors",
+        text: "Shipping Address",
+        value: "shippingAddress",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Featured",
-        value: "featured",
+        text: "order Provider",
+        value: "orderServiceProvider",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Sale",
-        value: "sale",
+        text: "User Name",
+        value: "UserName",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
     DatatableHeader(
-        text: "Price",
-        value: "price",
+        text: "User Phone",
+        value: "UserPhone",
         show: true,
         sortable: true,
         textAlign: TextAlign.left),
   ];
 
-  List<DatatableHeader> brandsTableHeader = [
-    DatatableHeader(
-        text: "ID",
-        value: "id",
-        show: true,
-        sortable: true,
-        textAlign: TextAlign.left),
-    DatatableHeader(
-        text: "Brand",
-        value: "brand",
-        show: true,
-        flex: 2,
-        sortable: true,
-        textAlign: TextAlign.left),
-  ];
-
-  List<DatatableHeader> categoriesTableHeader = [
-    DatatableHeader(
-        text: "ID",
-        value: "id",
-        show: true,
-        sortable: true,
-        textAlign: TextAlign.left),
-    DatatableHeader(
-        text: "Category",
-        value: "category",
-        show: true,
-        flex: 2,
-        sortable: true,
-        textAlign: TextAlign.left),
-  ];
   List<int> perPages = [5, 10, 15, 100];
   int total = 100;
   int currentPerPage;
@@ -234,11 +203,11 @@ class TablesProvider with ChangeNotifier {
     List<Map<String, dynamic>> temps = List<Map<String, dynamic>>();
     for (OrdersModel product in _products) {
       temps.add({
-        "id": product.orderID,
+        "orderID": product.orderID,
         "Description": product.orderDescription,
         "ServiceProviderName": product.orderServiceProviderName,
         "Status": product.orderStatus,
-        "ServiceProvider": product.orderServiceProvider,
+        "orderServiceProvider": product.orderServiceProvider,
         "shippingAddress": product.shippingAddress,
         "orderRegion": product.orderRegion,
         "UserName": product.orderUserName,

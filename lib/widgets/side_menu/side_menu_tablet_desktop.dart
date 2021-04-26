@@ -51,8 +51,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               text: 'Tables',
               active: appProvider.currentPage == DisplayedPage.ORDERS,
               onTap: () {
-                appProvider.changeCurrentPage(DisplayedPage.ORDERS);
-                locator<NavigationService>().navigateTo(OrdersRoute);
+                // appProvider.changeCurrentPage(DisplayedPage.ORDERS);
+                // locator<NavigationService>().navigateTo(OrdersRoute);
               },
             ),
             SideMenuItemDesktop(
@@ -60,8 +60,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
               text: 'Maps',
               active: appProvider.currentPage == DisplayedPage.PRODUCTS,
               onTap: () {
-                appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);
-                locator<NavigationService>().navigateTo(ProductsRoute);
+                // appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);
+                // locator<NavigationService>().navigateTo(ProductsRoute);
               },
             ),
             SideMenuItemDesktop(
