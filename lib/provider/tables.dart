@@ -1,4 +1,5 @@
-import 'package:dashboard/models/products.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dashboard/models/orders.dart';
 import 'package:dashboard/models/user.dart';
 import 'package:dashboard/services/products.dart';
 import 'package:dashboard/services/user.dart';
@@ -181,23 +182,29 @@ class TablesProvider with ChangeNotifier {
   UserServices _userServices = UserServices();
   List<UserModel> _users = <UserModel>[];
   List<UserModel> get users => _users;
-  ProductModel productModel = ProductModel(
-    " ss",
-    " ss",
-    " ss",
-    " ss",
-    " ss",
-    " ss",
-    1,
-    2,
-    false,
-    false,
-    [],
-    [],
-  );
+  OrdersModel productModel = OrdersModel(
+      completeOrderCode: 1,
+      locationLatitude: 1.2,
+      locationLongitude: 1.3,
+      order: [],
+      orderDate: Timestamp(22, 22),
+      orderDescription: 'f',
+      orderDetailedStatus: 's',
+      orderID: 's',
+      orderRegion: 's',
+      orderServiceProvider: 's',
+      orderServiceProviderName: 's',
+      orderStatus: 'f',
+      orderTimeline: [],
+      orderType: 's',
+      orderUserID: 's',
+      orderUserName: 'e',
+      orderUserPhone: 'ff',
+      selectedDateTime: Timestamp(22, 22),
+      shippingAddress: 'ddd');
   ProductsServices _productsServices = ProductsServices();
-  List<ProductModel> _products = <ProductModel>[];
-  List<ProductModel> get products => _products;
+  List<OrdersModel> _products = <OrdersModel>[];
+  List<OrdersModel> get products => _products;
 
   Future _loadFromFirebase() async {
     _users = await _userServices.getAllUsers();
@@ -225,18 +232,18 @@ class TablesProvider with ChangeNotifier {
 
   List<Map<String, dynamic>> _getProductsData() {
     List<Map<String, dynamic>> temps = List<Map<String, dynamic>>();
-    for (ProductModel product in _products) {
+    for (OrdersModel product in _products) {
       temps.add({
-        "id": product.id,
-        "name": product.name,
-        "brand": product.brand,
-        "category": product.category,
-        "quantity": product.quantity,
-        "sale": product.sale,
-        "featured": product.featured,
-        "colors": product.colors,
-        "sizes": product.sizes,
-        "price": "\$${product.price}",
+        "id": product.orderID,
+        "Description": product.orderDescription,
+        "ServiceProviderName": product.orderServiceProviderName,
+        "Status": product.orderStatus,
+        "ServiceProvider": product.orderServiceProvider,
+        "shippingAddress": product.shippingAddress,
+        "orderRegion": product.orderRegion,
+        "UserName": product.orderUserName,
+        "UserPhone": product.orderUserPhone,
+        "UserID": "\$${product.orderUserID}",
       });
     }
     return temps;

@@ -5,12 +5,12 @@ import 'package:provider/provider.dart';
 import 'package:responsive_table/ResponsiveDatatable.dart';
 import 'package:responsive_table/responsive_table.dart';
 
-class ProductsPage extends StatefulWidget {
+class OrdersPage extends StatefulWidget {
   @override
-  _ProductsPageState createState() => _ProductsPageState();
+  _OrdersPageState createState() => _OrdersPageState();
 }
 
-class _ProductsPageState extends State<ProductsPage> {
+class _OrdersPageState extends State<OrdersPage> {
   bool _isLoading = true;
   List<Map<String, dynamic>> _source = List<Map<String, dynamic>>();
 
@@ -33,7 +33,7 @@ class _ProductsPageState extends State<ProductsPage> {
             mainAxisSize: MainAxisSize.max,
             children: [
           PageHeader(
-            text: 'Products',
+            text: 'Orders',
           ),
           Container(
             margin: EdgeInsets.all(10),
@@ -52,7 +52,7 @@ class _ProductsPageState extends State<ProductsPage> {
                           tablesProvider.Createproduct();
                         },
                         icon: Icon(Icons.add),
-                        label: Text("ADD product"))
+                        label: Text("Add Orders"))
                     : null,
                 actions: [
                   if (tablesProvider.isSearch)

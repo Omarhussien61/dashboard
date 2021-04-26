@@ -1,23 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dashboard/helpers/costants.dart';
-import 'package:dashboard/models/products.dart';
+import 'package:dashboard/models/orders.dart';
 
 class ProductsServices {
-  String collection = "products";
+  String collection = "orders";
 
-  Future<List<ProductModel>> getAllProducts() async =>
+  Future<List<OrdersModel>> getAllProducts() async =>
       firebaseFiretore.collection(collection).get().then((result) {
-        List<ProductModel> products = [];
+        List<OrdersModel> products = [];
         for (DocumentSnapshot product in result.docs) {
-          products.add(ProductModel.fromSnapshot(product));
+          products.add(OrdersModel.fromSnapshot(product));
         }
         return products;
       });
 
-  void createProduct({ProductModel product}) {
+  void createProduct({OrdersModel product}) {
     firebaseFiretore
         .collection(collection)
-        .doc(product.id)
+        .doc(product.orderID)
         .set(product.toJson());
   }
 }

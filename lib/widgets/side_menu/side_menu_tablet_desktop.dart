@@ -66,7 +66,7 @@ class SideMenuTabletDesktop extends StatelessWidget {
             ),
             SideMenuItemDesktop(
               icon: Icons.category,
-              text: 'Categories',
+              text: 'Orders',
               active: appProvider.currentPage == DisplayedPage.CATEGORIES,
               onTap: () {
                 appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);

@@ -1,6 +1,6 @@
 import 'package:dashboard/main.dart';
 import 'package:dashboard/pages/login/login.dart';
-import 'package:dashboard/pages/products/products_page.dart';
+import 'package:dashboard/pages/orders/products_page.dart';
 import 'package:dashboard/pages/registration/registration.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/widgets/layout/layout.dart';
