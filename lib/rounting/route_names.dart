@@ -7,4 +7,5 @@ const String LoginRoute = "login";
 const String RegistrationRoute = "registration";
 const String CategoriesRoute = "categories";
 const String BrandsRoute = "brands";
+const String UserOrders = "userOrders";
 const String PageControllerRoute = "page";

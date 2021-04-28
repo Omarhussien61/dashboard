@@ -1,6 +1,9 @@
+import 'package:dashboard/pages/home/desktop.dart';
+import 'package:dashboard/pages/home/desktop_provider.dart';
 import 'package:dashboard/pages/home/home_page.dart';
 import 'package:dashboard/helpers/costants.dart';
 import 'package:dashboard/pages/login/login.dart';
+import 'package:dashboard/pages/usersorders/users_orders_provider.dart';
 import 'package:dashboard/provider/app_provider.dart';
 import 'package:dashboard/provider/auth.dart';
 import 'package:dashboard/provider/tables.dart';
@@ -11,6 +14,7 @@ import 'package:dashboard/widgets/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'helpers/reusable.dart';
 import 'locator.dart';
 
 void main() {
@@ -19,6 +23,8 @@ void main() {
     ChangeNotifierProvider.value(value: AppProvider.init()),
     ChangeNotifierProvider.value(value: AuthProvider.initialize()),
     ChangeNotifierProvider.value(value: TablesProvider.init()),
+    ChangeNotifierProvider.value(value: DesktopProvider()),
+    ChangeNotifierProvider.value(value: UsersOrdersProvider()),
   ], child: MyApp()));
 }
 
@@ -42,7 +48,7 @@ class AppPagesController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
-
+    initScreenDims(context);
     return FutureBuilder(
       // Initialize FlutterFire:
       future: initialization,

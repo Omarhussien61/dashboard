@@ -7,6 +7,7 @@ class DashboardCard extends StatelessWidget {
   IconData icon;
   Color iconColor;
   String title;
+  String subTitle;
   String value;
   double percent;
   bool better;
@@ -16,6 +17,7 @@ class DashboardCard extends StatelessWidget {
       {this.icon,
       this.iconColor,
       this.title,
+      this.subTitle,
       this.value,
       this.percent,
       this.better});
@@ -49,21 +51,21 @@ class DashboardCard extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top:8.h,right: 2.w,left: 2.w),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.2),
-                        progressColor: better ? Colors.lightBlue:Colors.black38,
-                        lineHeight: 12.h,
-                        percent: percent/100,
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(top:8.h,right: 2.w,left: 2.w),
+                    //   child: LinearPercentIndicator(
+                    //     backgroundColor: Colors.grey.withOpacity(0.2),
+                    //     progressColor: better ? Colors.lightBlue:Colors.black38,
+                    //     lineHeight: 12.h,
+                    //     percent: percent/100,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 2.w,right: 2.w,bottom: 4.h),
-                child: Text("${better ? "Better":"Worse"} than last week $percent%",style: TextStyle(fontSize: 12.sp,color: better ? Colors.lightBlue:Colors.grey)),
+                child: Text(subTitle,style: TextStyle(fontSize: 12.sp,color: better ? Colors.lightBlue:Colors.grey)),
               )
             ],
           ),

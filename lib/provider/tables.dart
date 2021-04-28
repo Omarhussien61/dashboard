@@ -167,6 +167,7 @@ class TablesProvider with ChangeNotifier {
       orderTimeline: [],
       orderType: 's',
       orderUserID: 's',
+      orderPrice: '100',
       orderUserName: 'e',
       orderUserPhone: 'ff',
       selectedDateTime: Timestamp(22, 22),

@@ -1,19 +1,16 @@
 import 'package:dashboard/helpers/reusable.dart';
-import 'package:dashboard/rounting/route_names.dart';
-import 'package:dashboard/rounting/router.dart';
-import 'package:dashboard/services/navigation_service.dart';
+import 'package:dashboard/pages/home/desktop.dart';
+import 'package:dashboard/pages/home/desktop_provider.dart';
 import 'package:dashboard/widgets/side_menu/side_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../locator.dart';
 import '../navbar/navigation_bar.dart';
 
 class LayoutTemplate extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
-    initScreenDims(context);
     return Scaffold(
       key: _key,
       backgroundColor: Colors.white,
@@ -40,13 +37,13 @@ class LayoutTemplate extends StatelessWidget {
               children: [
                 NavigationBar(),
                 Expanded(
-                  //child: HomePageDesktop(),
+                  child: HomePageDesktop(),
                   flex: 1,
-                  child: Navigator(
-                    key: locator<NavigationService>().navigatorKey,
-                    onGenerateRoute: generateRoute,
-                    initialRoute: HomeRoute,
-                  ),
+                  // child: Navigator(
+                  //   key: locator<NavigationService>().navigatorKey,
+                  //   onGenerateRoute: generateRoute,
+                  //   initialRoute: HomeRoute,
+                  // ),
                 )
               ],
             ),

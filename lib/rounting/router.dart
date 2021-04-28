@@ -1,7 +1,9 @@
 import 'package:dashboard/main.dart';
+import 'package:dashboard/models/UserDataProfile.dart';
 import 'package:dashboard/pages/login/login.dart';
 import 'package:dashboard/pages/orders/products_page.dart';
 import 'package:dashboard/pages/registration/registration.dart';
+import 'package:dashboard/pages/usersorders/users_orders.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/widgets/layout/layout.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(LayoutTemplate());
     case PageControllerRoute:
       return _getPageRoute(AppPagesController());
+    case UserOrders:
+      final UserDataProfile args = settings.arguments as UserDataProfile;
+      return _getPageRoute(UsersOrders(args));
     default:
       return _getPageRoute(HomePage());
   }

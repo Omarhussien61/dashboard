@@ -74,7 +74,7 @@ class SalesChartState extends State<SalesChart> {
                 const SizedBox(
                   height: 10,
                 ),
-              ],
+              ],  
             ),
             IconButton(
               icon: Icon(

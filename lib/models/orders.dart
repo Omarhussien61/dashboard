@@ -22,6 +22,7 @@ class OrdersModel {
 
   static const OrderRegion = "orderRegion";
   static const OrderUserID = "orderUserID";
+  static const OrderPrice = "orderPrice";
   static const OrderDetailedStatus = "orderDetailedStatus";
   static const OrderTimeline = "orderTimeline";
   static const CompleteOrderCode = "completeOrderCode";
@@ -46,6 +47,7 @@ class OrdersModel {
   String orderDescription;
   String orderRegion;
   String orderUserID;
+  String orderPrice;
   String orderDetailedStatus;
   List<dynamic> orderTimeline;
   int completeOrderCode;
@@ -67,6 +69,7 @@ class OrdersModel {
       this.orderDescription,
       this.orderRegion,
       this.orderUserID,
+      this.orderPrice,
       this.orderDetailedStatus,
       this.orderTimeline,
       this.completeOrderCode});
@@ -88,6 +91,7 @@ class OrdersModel {
     locationLatitude = snapshot.data()[LocationLatitude];
     orderRegion = snapshot.data()[OrderRegion];
     orderUserID = snapshot.data()[OrderUserID];
+    orderPrice = snapshot.data()[OrderPrice];
     orderDetailedStatus = snapshot.data()[OrderDetailedStatus];
     orderTimeline = snapshot.data()[OrderTimeline];
     completeOrderCode = snapshot.data()[CompleteOrderCode];
@@ -112,6 +116,7 @@ class OrdersModel {
     data[LocationLongitude] = LocationLongitude;
 
     data[OrderUserID] = orderUserID;
+    data[OrderPrice] = orderPrice;
     data[OrderDetailedStatus] = orderDetailedStatus;
     data[OrderTimeline] = orderTimeline;
     data[CompleteOrderCode] = completeOrderCode;
