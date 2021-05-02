@@ -19,7 +19,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(loginPage());
     case ProductsRoute:
       return _getPageRoute(ProductsPage());
-    case RegistrationRoute:
+    case PhoneRoute:
       return _getPageRoute(RegistrationPage());
     case LayoutRoute:
       return _getPageRoute(LayoutTemplate());

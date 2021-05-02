@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class PhonePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomText(
-                          text: "LOGIN",
+                          text: "Login Phone",
                           size: 22,
                           weight: FontWeight.bold,
                         ),
@@ -60,27 +60,8 @@ class LoginPage extends StatelessWidget {
                                 controller: authProvider.email,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: 'Email',
+                                    hintText: 'Phone',
                                     icon: Icon(Icons.email_outlined)),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Container(
-                            decoration: BoxDecoration(color: Colors.grey[200]),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: TextField(
-                                controller: authProvider.password,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: 'Password',
-                                    icon: Icon(Icons.lock_open)),
                               ),
                             ),
                           ),
@@ -110,13 +91,12 @@ class LoginPage extends StatelessWidget {
                             decoration: BoxDecoration(color: Colors.indigo),
                             child: FlatButton(
                               onPressed: () async {
-                                if (!await authProvider.signIn()) {
+                                if (!await authProvider.signInPhone()) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(content: Text("Login failed!")));
                                   return;
                                 }
                                 authProvider.clearController();
-
                                 locator<NavigationService>()
                                     .globalNavigateTo(LayoutRoute, context);
                               },
@@ -154,8 +134,7 @@ class LoginPage extends StatelessWidget {
                               GestureDetector(
                                   onTap: () {
                                     locator<NavigationService>()
-                                        .globalNavigateTo(
-                                            PhoneRoute, context);
+                                        .globalNavigateTo(PhoneRoute, context);
                                   },
                                   child: CustomText(
                                     text: "Sign up here. ",
@@ -165,6 +144,19 @@ class LoginPage extends StatelessWidget {
                             ],
                           ),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              locator<NavigationService>()
+                                  .globalNavigateTo(LoginRoute, context);
+                            },
+                            child: CustomText(
+                              text: "Login Email ",
+                              size: 16,
+                              color: Colors.indigo,
+                            )),
                       ],
                     ),
                   ),
@@ -173,7 +165,4 @@ class LoginPage extends StatelessWidget {
             ),
     );
   }
-
-
-
 }

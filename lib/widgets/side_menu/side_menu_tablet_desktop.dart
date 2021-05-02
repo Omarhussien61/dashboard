@@ -1,6 +1,7 @@
 import 'package:dashboard/helpers/enumerators.dart';
 import 'package:dashboard/locator.dart';
 import 'package:dashboard/provider/app_provider.dart';
+import 'package:dashboard/provider/auth.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/services/navigation_service.dart';
 import 'package:dashboard/widgets/navbar/navbar_logo.dart';
@@ -12,6 +13,8 @@ class SideMenuTabletDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppProvider appProvider = Provider.of<AppProvider>(context);
+    final authProvider = Provider.of<AuthProvider>(context);
+
     return Container(
       decoration: BoxDecoration(
           color: Colors.green,
@@ -71,6 +74,14 @@ class SideMenuTabletDesktop extends StatelessWidget {
               onTap: () {
                 appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);
                 locator<NavigationService>().navigateTo(ProductsRoute);
+              },
+            ),
+            SideMenuItemDesktop(
+              icon: Icons.logout,
+              text: 'Logout',
+              active: appProvider.currentPage == DisplayedPage.CATEGORIES,
+              onTap: () {
+                authProvider.signOut();
               },
             ),
           ],

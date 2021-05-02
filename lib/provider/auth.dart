@@ -15,6 +15,11 @@ class AuthProvider with ChangeNotifier {
   Status _status = Status.Uninitialized;
   UserServices _userServices = UserServices();
   UserModel _userModel;
+  String CountryNo = '+20';
+  String verificationId;
+  String errorMessage = '';
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  String smsOTP;
 
 //  getter
   UserModel get userModel => _userModel;
@@ -51,6 +56,29 @@ class AuthProvider with ChangeNotifier {
         await prefs.setString("id", value.user.uid);
       });
       return true;
+    } catch (e) {
+      _status = Status.Unauthenticated;
+      notifyListeners();
+      print(e.toString());
+      return false;
+    }
+  }
+
+  Future<bool> signInPhone() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    try {
+      _status = Status.Authenticating;
+      notifyListeners();
+      verifyPhone(email.text.trim());
+      //
+      // await auth
+      //     .signInWithEmailAndPassword(
+      //         email: email.text.trim(), password: password.text.trim())
+      //     .then((value) async {
+      //   await prefs.setString("id", value.user.uid);
+      // });
+      // return true;
     } catch (e) {
       _status = Status.Unauthenticated;
       notifyListeners();
@@ -135,5 +163,39 @@ class AuthProvider with ChangeNotifier {
     }
 
     return null;
+  }
+
+  verifyPhone(String phone) async {
+    final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
+      this.verificationId = verId;
+    };
+    final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
+      this.verificationId = verId;
+      return true;
+    };
+    final PhoneVerificationFailed veriFailed = (exception) {
+      print('${exception.message}');
+      return false;
+    };
+
+    try {
+      await FirebaseAuth.instance.signInWithPhoneNumber(phone);
+      final PhoneCodeSent smsOTPSent = (String verId, [int forceCodeResend]) {
+        this.verificationId = verId;
+      };
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<bool> filedDialog(BuildContext context, String error) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: Center(child: Text('خطأ')),
+            content: Container(child: Text(error)),
+          );
+        });
   }
 }

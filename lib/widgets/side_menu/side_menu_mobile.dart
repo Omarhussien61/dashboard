@@ -1,6 +1,7 @@
 import 'package:dashboard/helpers/enumerators.dart';
 import 'package:dashboard/locator.dart';
 import 'package:dashboard/provider/app_provider.dart';
+import 'package:dashboard/provider/auth.dart';
 import 'package:dashboard/rounting/route_names.dart';
 import 'package:dashboard/services/navigation_service.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ class SideMenuMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppProvider appProvider = Provider.of<AppProvider>(context);
+    final authProvider = Provider.of<AuthProvider>(context);
 
     return Container(
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -36,6 +38,12 @@ class SideMenuMobile extends StatelessWidget {
               onPressed: () {
                 appProvider.changeCurrentPage(DisplayedPage.PRODUCTS);
                 locator<NavigationService>().navigateTo(ProductsRoute);
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                authProvider.signOut();
               },
             ),
           ],

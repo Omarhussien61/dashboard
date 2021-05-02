@@ -1,8 +1,6 @@
-import 'package:dashboard/pages/home/desktop.dart';
-import 'package:dashboard/pages/home/desktop_provider.dart';
-import 'package:dashboard/pages/home/home_page.dart';
 import 'package:dashboard/helpers/costants.dart';
-import 'package:dashboard/pages/login/login.dart';
+import 'package:dashboard/pages/home/desktop_provider.dart';
+import 'package:dashboard/pages/login/phoneLogin.dart';
 import 'package:dashboard/pages/usersorders/users_orders_provider.dart';
 import 'package:dashboard/provider/app_provider.dart';
 import 'package:dashboard/provider/auth.dart';
@@ -71,11 +69,11 @@ class AppPagesController extends StatelessWidget {
               return Loading();
             case Status.Unauthenticated:
             case Status.Authenticating:
-              return loginPage();
+              return PhonePage();
             case Status.Authenticated:
               return LayoutTemplate();
             default:
-              return loginPage();
+              return PhonePage();
           }
         }
 
